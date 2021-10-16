@@ -10,7 +10,7 @@ namespace MyFirstMobileApp
         public App()
         {
             InitializeComponent();
-            // this is a comment
+
             //MainPage = new NavigationPage(new MainPage()) { BarBackgroundColor = Color.Blue, BarTextColor = Color.White };
             //MainPage = new AppShell();
             //MainPage = new CalculatorPage();
