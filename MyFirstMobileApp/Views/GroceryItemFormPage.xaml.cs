@@ -13,13 +13,29 @@ namespace MyFirstMobileApp.Views
             InitializeComponent();
         }
 
+        private GroceryItem existingItem;
+
+        public GroceryItemFormPage(GroceryItem item)
+        {
+            InitializeComponent();
+
+            existingItem = item;
+
+            Title = "Update Grocery item";
+
+            txtItemName.Text = item.ItemName;
+            txtPrice.Text = item.Price.ToString();
+            txtUnit.Text = item.Unit;
+            txtQuantity.Text = item.Quantity.ToString();
+        }
+
         void btnSave_Clicked(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(txtItemName.Text))
             {
                 MainThread.BeginInvokeOnMainThread(async () =>
                 {
-                    await DisplayAlert("Error","Item name is required", "Ok");
+                    await DisplayAlert("Error", "Item name is required", "Ok");
                 });
 
                 return;
@@ -29,18 +45,32 @@ namespace MyFirstMobileApp.Views
 
             double.TryParse(txtPrice.Text, out double price);
 
-            Guid guid = Guid.NewGuid();
-
-            GroceryItem grocery = new GroceryItem
+            if (existingItem is null)
             {
-                Id = guid,
-                ItemName = txtItemName.Text,
-                Quantity = quantity,
-                Unit = txtUnit.Text,
-                Price = price,
-            };
+                Guid guid = Guid.NewGuid();
 
-            Barrel.Current.Add<GroceryItem>(guid.ToString(), grocery, TimeSpan.FromDays(100));
+                GroceryItem grocery = new GroceryItem
+                {
+                    Id = guid,
+                    ItemName = txtItemName.Text,
+                    Quantity = quantity,
+                    Unit = txtUnit.Text,
+                    Price = price,
+                };
+
+                Barrel.Current.Add<GroceryItem>(guid.ToString(), grocery, TimeSpan.FromDays(100));
+
+            }
+            else
+            {
+                existingItem.ItemName = txtItemName.Text;
+                existingItem.Quantity = quantity;
+                existingItem.Unit = txtUnit.Text;
+                existingItem.Price = price;
+
+                // use the existing key to overwrite saved data
+                Barrel.Current.Add(existingItem.Id.ToString(), existingItem, TimeSpan.FromDays(100));
+            }
 
             MainThread.BeginInvokeOnMainThread(async () => await App.Current.MainPage.Navigation.PopAsync());
 

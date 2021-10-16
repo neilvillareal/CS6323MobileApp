@@ -2,12 +2,10 @@
 <ContentPage
     x:Class="MyFirstMobileApp.GroceryListPage"
     xmlns="http://xamarin.com/schemas/2014/forms"
-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="My Grocery List">
     <ContentPage.Content>
         <StackLayout>
-            <Frame BackgroundColor="Azure">
-                <Label HorizontalOptions="Center" Text="My Grocery List" />
-            </Frame>
             <StackLayout Padding="10">
                 <CollectionView x:Name="cvMainList" HorizontalOptions="FillAndExpand">
                     <CollectionView.ItemTemplate>
@@ -17,9 +15,12 @@
                                     <SwipeItems>
                                         <SwipeItem
                                             BackgroundColor="Red"
-                                            IconImageSource="favorite.png"
-                                            Invoked="SwipeItem_Invoked"
+                                            Invoked="SwipeDelete_Invoked"
                                             Text="Delete" />
+                                        <SwipeItem
+                                            BackgroundColor="Green"
+                                            Invoked="SwipeUpdate_Invoked"
+                                            Text="Update" />
                                     </SwipeItems>
                                 </SwipeView.LeftItems>
                                 <SwipeView.RightItems>

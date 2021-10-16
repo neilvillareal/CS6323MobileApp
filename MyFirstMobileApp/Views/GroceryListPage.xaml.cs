@@ -48,7 +48,7 @@ namespace MyFirstMobileApp
             cvMainList.ItemsSource = Source;
         }
 
-        void SwipeItem_Invoked(object sender, EventArgs e)
+        void SwipeDelete_Invoked(object sender, EventArgs e)
         {
             if (sender is SwipeItem swipeItem)
             {
@@ -62,6 +62,21 @@ namespace MyFirstMobileApp
 
                         Barrel.Current.Empty(new string[] { removeFromSource.Id.ToString() });
                     }
+                }
+            }
+        }
+
+        void SwipeUpdate_Invoked(object sender, EventArgs e)
+        {
+            if (sender is SwipeItem swipeItem)
+            {
+                if (swipeItem.BindingContext is GroceryItem item)
+                {
+                    Device.BeginInvokeOnMainThread(async () =>
+                    {
+                        await App.Current.MainPage.Navigation.PushAsync(new GroceryItemFormPage(item));
+
+                    });
                 }
             }
         }
