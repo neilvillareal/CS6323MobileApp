@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="MyFirstMobileApp.AboutPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="About the app"
+    Style="{StaticResource MyContentPageStyle}">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label Text="This is my first app's About Page" />
+
+            <Image Source="about_icon.png" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

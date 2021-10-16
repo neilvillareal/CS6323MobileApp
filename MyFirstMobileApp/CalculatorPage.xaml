@@ -1,0 +1,170 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="MyFirstMobileApp.CalculatorPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    ios:Page.UseSafeArea="true"
+    BackgroundColor="SlateGray">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="calcButton" TargetType="Button">
+                <Setter Property="CornerRadius" Value="20" />
+                <Setter Property="Background" Value="LightBlue" />
+                <Setter Property="FontSize" Value="Large" />
+                <Setter Property="TextColor" Value="Black" />
+            </Style>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+            <Entry
+                x:Name="txtDisplay"
+                Background="Transparent"
+                FontSize="30"
+                HorizontalTextAlignment="End"
+                IsReadOnly="True"
+                TextColor="Black" />
+            <Grid HorizontalOptions="Center" VerticalOptions="Center">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="1*" />
+                </Grid.ColumnDefinitions>
+
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    Clicked="BtnAC_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="AC" />
+                <Button
+                    x:Name="btnDel"
+                    Grid.Row="0"
+                    Grid.Column="1"
+                    Clicked="BtnDel_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="DEL" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    Clicked="BtnOperation_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="%" />
+                <Button
+                    Grid.Row="0"
+                    Grid.Column="3"
+                    Clicked="BtnOperation_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="/" />
+
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="0"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="7" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="1"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="8" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="2"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="9" />
+                <Button
+                    Grid.Row="1"
+                    Grid.Column="3"
+                    Clicked="BtnOperation_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="X" />
+
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="0"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="4" />
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="1"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="5" />
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="2"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="6" />
+                <Button
+                    Grid.Row="2"
+                    Grid.Column="3"
+                    Clicked="BtnOperation_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="-" />
+
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="0"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="1" />
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="1"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="2" />
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="2"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="3" />
+                <Button
+                    Grid.Row="3"
+                    Grid.Column="3"
+                    Clicked="BtnOperation_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="+" />
+
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="0"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="0" />
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="1"
+                    Clicked="Button_Clicked"
+                    Style="{StaticResource calcButton}"
+                    Text="." />
+                <Button
+                    Grid.Row="4"
+                    Grid.Column="2"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="Orange"
+                    Clicked="BtnOperation_Clicked"
+                    Style="{DynamicResource calcButton}"
+                    Text="=" />
+
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

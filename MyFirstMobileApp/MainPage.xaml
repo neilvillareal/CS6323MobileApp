@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="MyFirstMobileApp.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ios="clr-namespace:Xamarin.Forms.PlatformConfiguration.iOSSpecific;assembly=Xamarin.Forms.Core"
+    Title="Home Screen"
+    ios:Page.UseSafeArea="true"
+    Style="{StaticResource MyContentPageStyle}">
+
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Padding="20">
+                <Label Text="Exam Score" />
+                <Entry x:Name="txtExamScore" Placeholder="Exam Score" />
+
+                <Label Text="Quiz 1" />
+                <Entry x:Name="txtQuiz1" Placeholder="Quiz 1" />
+                <Label Text="Quiz 2" />
+                <Entry x:Name="txtQuiz2" Placeholder="Quiz 2" />
+                <Label Text="Attendance" />
+                <Entry x:Name="txtAttendance" Placeholder="Attendance" />
+
+                <Label Text="Grade" />
+                <Label
+                    x:Name="lblGrade"
+                    FontSize="Large"
+                    Text="0.00">
+                    <Label.TextColor>
+                        <OnPlatform x:TypeArguments="Color">
+                            <On Platform="Android" Value="Magenta" />
+                            <On Platform="iOS" Value="Orange" />
+                        </OnPlatform>
+                    </Label.TextColor>
+                </Label>
+
+                <Button
+                    x:Name="btnCompute"
+                    Clicked="btnCompute_Clicked"
+                    Text="Compute Grade" />
+
+                <Button
+                    x:Name="btnGoToAboutPage"
+                    Clicked="btnGoToAboutPage_Clickked"
+                    Style="{StaticResource RedButton}"
+                    Text="Go to About Page" />
+
+                <Image Source="about_icon.png" />
+            </StackLayout>
+
+        </ScrollView>
+    </ContentPage.Content>
+
+</ContentPage>

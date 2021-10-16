@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application
+    x:Class="MyFirstMobileApp.App"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <Application.Resources>
+
+        <Style x:Key="MyContentPageStyle" TargetType="ContentPage">
+            <Setter Property="BackgroundColor" Value="LightGoldenrodYellow" />
+        </Style>
+
+        <!--<Style TargetType="Button">
+            <Setter Property="Background" Value="Blue" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="Small" />
+            <Setter Property="CornerRadius" Value="20" />
+        </Style>-->
+
+        <!--<Style TargetType="Entry">
+            <Setter Property="Background" Value="Cyan" />
+            <Setter Property="TextColor" Value="White" />
+            <Setter Property="FontSize" Value="Small" />
+        </Style>
+
+        <Style x:Key="RedButton" TargetType="Button">
+            <Setter Property="Background" Value="Red" />
+            <Setter Property="CornerRadius" Value="5" />
+        </Style>-->
+    </Application.Resources>
+</Application>

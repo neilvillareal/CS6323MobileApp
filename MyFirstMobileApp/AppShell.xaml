@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MyFirstMobileApp.AppShell"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:view="clr-namespace:MyFirstMobileApp"
+    BackgroundColor="AliceBlue"
+    FlyoutBackgroundColor="Beige"
+    FlyoutBehavior="Disabled">
+
+    <FlyoutItem FlyoutDisplayOptions="AsSingleItem">
+        <!--<Tab>
+        </Tab>-->
+        <ShellContent
+            Title="Main Page"
+            ContentTemplate="{x:DataTemplate view:MainPage}"
+            Icon="home_icon.png" />
+        <ShellContent
+            Title="About Page"
+            ContentTemplate="{x:DataTemplate view:AboutPage}"
+            Icon="about_icon.png" />
+        <ShellContent
+            Title="Calculator Page"
+            ContentTemplate="{x:DataTemplate view:CalculatorPage}"
+            Icon="about_icon.png" />
+    </FlyoutItem>
+</Shell>
