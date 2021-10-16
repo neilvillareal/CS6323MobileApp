@@ -1,4 +1,5 @@
 ﻿using System;
+using MonkeyCache.LiteDB;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,7 +15,9 @@ namespace MyFirstMobileApp
             //MainPage = new AppShell();
             //MainPage = new CalculatorPage();
 
-            MainPage = new GroceryListPage();
+            MainPage = new NavigationPage(new GroceryListPage());
+
+            Barrel.ApplicationId = "myfirstApp";
         }
 
         protected override void OnStart()

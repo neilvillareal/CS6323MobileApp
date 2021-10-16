@@ -1,0 +1,85 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="MyFirstMobileApp.GroceryListPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
+    <ContentPage.Content>
+        <StackLayout>
+            <Frame BackgroundColor="Azure">
+                <Label HorizontalOptions="Center" Text="My Grocery List" />
+            </Frame>
+            <StackLayout Padding="10">
+                <CollectionView x:Name="cvMainList" HorizontalOptions="FillAndExpand">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <SwipeView>
+                                <SwipeView.LeftItems>
+                                    <SwipeItems>
+                                        <SwipeItem
+                                            BackgroundColor="Red"
+                                            IconImageSource="favorite.png"
+                                            Invoked="SwipeItem_Invoked"
+                                            Text="Delete" />
+                                    </SwipeItems>
+                                </SwipeView.LeftItems>
+                                <SwipeView.RightItems>
+                                    <SwipeItems>
+                                        <SwipeItem
+                                            BackgroundColor="Blue"
+                                            IconImageSource="favorite.png"
+                                            Text="Favorite" />
+                                    </SwipeItems>
+                                </SwipeView.RightItems>
+
+                                <StackLayout Padding="10,10">
+
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Item Name: " />
+                                                <Span Text="{Binding ItemName}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Quantity: " />
+                                                <Span Text="{Binding Quantity}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Unit: " />
+                                                <Span Text="{Binding Unit}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+                                    <Label>
+                                        <Label.FormattedText>
+                                            <FormattedString>
+                                                <Span Text="Price: $" />
+                                                <Span Text="{Binding Price}" />
+                                            </FormattedString>
+                                        </Label.FormattedText>
+                                    </Label>
+
+
+                                </StackLayout>
+                            </SwipeView>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+                <Button
+                    x:Name="btnAddToCart"
+                    Clicked="btnAddToCart_Clicked"
+                    Text="Add To Cart" />
+            </StackLayout>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

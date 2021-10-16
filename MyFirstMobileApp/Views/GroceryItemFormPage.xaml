@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    x:Class="MyFirstMobileApp.Views.GroceryItemFormPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    Title="Add new grocery item">
+    <ContentPage.Content>
+        <StackLayout Padding="10" Spacing="10">
+            <Entry x:Name="txtItemName" Placeholder="Item Name" />
+            <Entry
+                x:Name="txtQuantity"
+                Keyboard="Numeric"
+                Placeholder="Quantity" />
+            <Entry x:Name="txtUnit" Placeholder="Unit" />
+            <Entry
+                x:Name="txtPrice"
+                Keyboard="Numeric"
+                Placeholder="Price" />
+
+            <Button
+                x:Name="btnSave"
+                Clicked="btnSave_Clicked"
+                Text="Save Item" />
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
